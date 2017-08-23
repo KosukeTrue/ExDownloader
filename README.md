@@ -10,4 +10,4 @@ EX图片下载器
 先复制Ex漫画地址，然后打开软件，自动下载后自动关闭  
   
 cookies获取方法：  
-使用Chrome(或极速内核)打开Ex后按F12，在上方选项选择NetWork，然后刷新一下，在中间列表里的第一个选项上右键Copy>Copy request headers，然后随便找个地方粘贴出来，Cookies:后面的就是cookies  
+使用Chrome(或极速内核)打开Ex后按F12，在上方选项选择NetWork，然后刷新一下，在中间列表里的第一个项目上右键Copy>Copy request headers，然后随便找个地方粘贴出来，Cookies:后面的就是cookies  
