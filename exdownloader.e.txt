@@ -178,13 +178,13 @@
 
 .子程序 __启动窗口_创建完毕
 
-当前版本 ＝ 13
+当前版本 ＝ 14
 _启动窗口.标题 ＝ “Ex图片下载器v” ＋ 到文本 (当前版本 ÷ 10) ＋ “ @WGzeyu   https://github.com/wgzeyu/ExDownloader”
 下载地址 ＝ 取剪辑板文本 ()
 .如果真 (文件是否存在 (取运行目录 () ＋ “\set.ini”) ＝ 假)
     写到文件 (取运行目录 () ＋ “\set.ini”, 到字节集 (文本_替换 (#设置模板, , , , “%directory%”, 取运行目录 ())))
     .如果 (取系统语言 () ＝ 1 或 取系统语言 () ＝ 3)
-        信息框 (“首次使用需将cookies和下载目录填写到set.ini”, 0, , )
+        信息框 (“首次使用需将cookies和下载目录填写到set.ini” ＋ #换行符 ＋ “【注意】若不填Cookies将出现熊猫无法使用！” ＋ #换行符 ＋ “【注意】若Cookies填错将出现熊猫无法使用！” ＋ #换行符 ＋ “【注意】不填Cookies或填错相当于没有登录！”, 0, , )
     .否则
         信息框 (“For the first time you need to fill in cookies and download the directory to fill in set.ini”, 0, , )
     .如果结束
@@ -206,6 +206,14 @@ _启动窗口.标题 ＝ “Ex图片下载器v” ＋ 到文本 (当前版本 ÷
 .如果真结束
 .如果真 (取系统语言 () ＝ 2)
     设置_是否英文 ＝ 真
+.如果真结束
+.如果真 (快速取出现次数 (文本_取出中间文本 (读入设置, “<cookies>”, “</cookies>”), “ipb_pass_hash=”) ＝ 0)
+    .如果 (取系统语言 () ＝ 1 或 取系统语言 () ＝ 3)
+        信息框 (“检测到Cookies可能填写不正确，请正确填写Cookies，否则相当于没有登录，可能会出现熊猫。”, 0, , )
+    .否则
+        信息框 (“Cookies have been detected may fill out incorrectly, please fill out the Cookies correctly, otherwise the equivalent of no login, may appear panda.”, 0, , )
+    .如果结束
+
 .如果真结束
 网页_置Cookie1 (网页_取域名 (下载地址), 文本_取出中间文本 (读入设置, “<cookies>”, “</cookies>”))
 启动线程 (&_按钮1_被单击, , )
