@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         ExDownloader Jump Tool
+// @name         ExDownloaderJumpTool
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @description  跳转到ExDownloader自动下载
